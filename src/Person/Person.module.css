@@ -1,4 +1,4 @@
-/* .Person {
+.Person {
   width: 60%;
   margin: 16px auto;
   border: 1px solid #eee;
@@ -9,10 +9,10 @@
 
 .input {
   margin-right: 1rem;
-} */
+}
 
-/* @media (min-width: 500px) {
+@media (min-width: 500px) {
   .Person {
     width: 450px;
   }
-} */
+}
