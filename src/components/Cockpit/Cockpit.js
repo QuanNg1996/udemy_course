@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classes from './Cockpit.module.css';
 
-const Cockpit = props => {
+const Cockpit = (props) => {
+  useEffect(() => {
+    console.log('[Cockpit.js] useEffect');
+    // Http request ...
+  setTimeout(() => {
+      alert('Saved data to cloud!');
+    }, 5000);
+    return () => {
+      console.log('[Cockpit.js] cleanup work in useEffect');
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log('[Cockpit.js] useEffect');
+    return () => {
+      console.log('[Cockpit.js] cleanup work in 2nd useEffect');
+    };
+  });
+
   const assignedClasses = [];
   let btnClass = '';
   if (props.showPersons) {
@@ -9,16 +27,17 @@ const Cockpit = props => {
   }
 
   btnClass = classes.Red;
-  if (props.persons.length <= 2) {
+  if (props.personsLength <= 2) {
     assignedClasses.push(classes.red); // assignedClasses = ['red']
   }
 
-  if (props.persons.length <= 1) {
+  if (props.personsLength <= 1) {
     assignedClasses.push(classes.bold); // assignedClasses = ['red', 'bold']
   }
+
   return(
     <div className={classes.Cockpit}>
-      <h1>Hi! I'm a React App</h1>
+      <h1>{props.title}</h1>
       <p className={assignedClasses.join(' ')}>This is a paragraph</p>
       <button
         className={btnClass}
@@ -28,4 +47,4 @@ const Cockpit = props => {
   );
 };
 
-export default Cockpit;
+export default React.memo(Cockpit);
