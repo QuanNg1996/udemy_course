@@ -9,7 +9,7 @@ class Posts extends Component {
   }
 
   componentDidMount () {
-    axios.get( '/posts' )
+    axios.get('/posts')
       .then( response => {
         const posts = response.data.slice(0, 4);
         const updatedPosts = posts.map(post => {
