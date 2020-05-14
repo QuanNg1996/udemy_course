@@ -17,6 +17,7 @@ class Blog extends Component {
   render () {
     return (
       <div className="Blog">
+
         <header>
           <nav>
             <ul>
@@ -36,8 +37,10 @@ class Blog extends Component {
             </ul>
           </nav>
         </header>
+
         {/* <Route path="/" exact render={() => <h1>Home</h1>} />
         <Route path="/new-post" render={() => <h1>New-Post</h1>} /> */}
+
         <Switch>
           {this.state.auth ? <Route path="/new-post" component={AsyncNewPost} /> : null}
           <Route path="/posts" component={Posts} />
@@ -45,6 +48,7 @@ class Blog extends Component {
           {/* <Redirect from="/" to="/posts" /> */}
           {/* <Route path="/" component={Posts} /> */}
         </Switch>
+
       </div>
     );
   }
